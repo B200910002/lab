@@ -74,8 +74,8 @@ public class MyQueue implements Queue{
 			case 3:
 				System.out.println(mainQueue.getRearEelement());
 			case 4:
-				
-//				System.out.println(mainQueue.put());
+				Object input = new Object();
+				mainQueue.put(input);
 			}
 		}
 		
