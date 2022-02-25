@@ -69,6 +69,7 @@ public class MyQueue implements Queue{
 
 				int command = sc.nextInt();
 //				System.out.println("command-iin ur dun: ");
+				//
 				switch(command) {
 					case 1:
 						if(mainQueue.isEmpty())
