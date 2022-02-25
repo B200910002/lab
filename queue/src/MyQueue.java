@@ -76,6 +76,10 @@ public class MyQueue implements Queue{
 			case 4:
 				Object input = new Object();
 				mainQueue.put(input);
+			case 5:
+				System.out.println(mainQueue.remove());
+			default:
+					
 			}
 		}
 		
