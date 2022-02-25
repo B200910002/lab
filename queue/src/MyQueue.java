@@ -62,26 +62,44 @@ public class MyQueue implements Queue{
 //		MyQueue mainQueue = new MyQueue(sc.nextInt());
 		System.out.println("=====>>>>> Daraalal <<<<<<=====");
 		System.out.println("=>uildliig ajilluulhiin tuld uildluudiin urdah dugaariig oruulna uu?");
-		System.out.println("1.isEmpty() \n2.getFrontEelement()\n3.getRearEelement()\n4.put\n5.remove");
-		int command = sc.nextInt();
-		while(true) {
-			switch(command) {
-			case 1:
-				System.out.println(mainQueue.isEmpty());
-				break;
-			case 2:
-				System.out.println(mainQueue.getFrontEelement());
-			case 3:
-				System.out.println(mainQueue.getRearEelement());
-			case 4:
-				Object input = new Object();
-				mainQueue.put(input);
-			case 5:
-				System.out.println(mainQueue.remove());
-			default:
-					
+		
+		try {
+			while(true) {
+				System.out.println("1.isEmpty() \n2.getFrontEelement()\n3.getRearEelement()\n4.put\n5.remove");
+
+				int command = sc.nextInt();
+//				System.out.println("command-iin ur dun: ");
+				switch(command) {
+					case 1:
+						if(mainQueue.isEmpty())
+							System.out.println("ene daraalal hooson baina!\n");
+						else
+							System.out.println("ene daraalal hooson bish baina!\n");
+						break;
+					case 2:
+						if(!mainQueue.isEmpty())
+							System.out.println("Ene daraalaliin ehnii element = " + mainQueue.getFrontEelement()+"\n");
+						System.out.println("element alga bn!!");
+						break;
+					case 3:
+						System.out.println("Ene daraalaliin suuliin element = " + mainQueue.getRearEelement()+ "\n");
+						break;
+					case 4:
+						System.out.println("elementee oruulna uu?");
+						Object input = new String(sc.next());
+						mainQueue.put(input);
+						
+						break;
+					case 5:
+						System.out.println(mainQueue.remove());
+						break;
+					default:
+						System.out.println("is valid command!");
+						break;
+				}
 			}
-		}
+		}catch(Exception ex) {System.out.println("system-d ymar negen aldaa garlaa!!");;}
+		
 		
 	}
 }
