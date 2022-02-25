@@ -10,7 +10,7 @@ public class MyQueue implements Queue{
 	
 	public MyQueue(int initialized_size){
 		if(initialized_size < 1)
-			throw new IllegalArgumentException("Ð­Ñ…Ð»Ò¯Ò¯Ð»Ñ�Ñ… Ð±Ð°Ð³Ñ‚Ð°Ð°Ð¼Ð¶ 1-Ñ�Ñ�Ñ� Ð·Ð°Ð°Ð²Ð°Ð» Ð¸Ñ… Ð±Ð°Ð¹Ñ… Ñ‘Ñ�Ñ‚Ð¾Ð¹!!!");
+			throw new IllegalArgumentException("failed.Cause your input is valid!!!");
 		elements = new Object[initialized_size];
 		this.size = -1;
 //		this.lastIndex = size - firstIndex;
@@ -56,12 +56,28 @@ public class MyQueue implements Queue{
 	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		MyQueue q = new MyQueue();
-		q.put(new Integer(4));
-		q.put(new Integer(6));
-		q.put(new Integer(9));
-		System.out.println(q.remove());
-		System.out.println(q.remove());
-		System.out.println(q.remove());
+		Scanner sc = new Scanner(System.in);
+		MyQueue mainQueue = new MyQueue();
+//		System.out.println("");
+//		MyQueue mainQueue = new MyQueue(sc.nextInt());
+		System.out.println("=====>>>>> Daraalal <<<<<<=====");
+		System.out.println("=>uildliig ajilluulhiin tuld uildluudiin urdah dugaariig oruulna uu?");
+		System.out.println("1.isEmpty() \n2.getFrontEelement()\n3.getRearEelement()\n4.put\n5.remove");
+		int command = sc.nextInt();
+		while(true) {
+			switch(command) {
+			case 1:
+				System.out.println(mainQueue.isEmpty());
+				break;
+			case 2:
+				System.out.println(mainQueue.getFrontEelement());
+			case 3:
+				System.out.println(mainQueue.getRearEelement());
+			case 4:
+				
+//				System.out.println(mainQueue.put());
+			}
+		}
+		
 	}
 }
