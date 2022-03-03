@@ -5,8 +5,9 @@ import java.util.*;
 public class MyQueue implements Queue{
 	private Object[] elements;
 	private int firstIndex = 0;
-	private int lastIndex = -1;
-	private int size;
+	private int size = 0;
+	private int lastIndex = size - 1;
+	
 	
 	public MyQueue(int initialized_size){
 		if(initialized_size < 1)
@@ -91,14 +92,13 @@ public class MyQueue implements Queue{
 						System.out.println("elementee oruulna uu?");
 						Object input = new String(sc.next());
 						mainQueue.put(input);
-						if(mainQueue.getFrontEelement().equals(input))
-							System.out.println("daraalald '"+input+"' elementiig amjilttai nemlee\n");
-						else
-							System.out.println("daraalald nemj chadsangui!");
+						System.out.println("daraalald '"+input+"' elementiig amjilttai nemlee\n");
 						break;
 					case 5:
 						System.out.println("daraallaas '"+mainQueue.remove()+"' element ustgagdlaa!"+"\n");
 						break;
+					case 6:
+						System.exit(0);
 					default:
 						System.out.println("is valid command!");
 						break;
