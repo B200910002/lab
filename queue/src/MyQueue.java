@@ -91,10 +91,10 @@ public class MyQueue implements Queue{
 						System.out.println("elementee oruulna uu?");
 						Object input = new String(sc.next());
 						mainQueue.put(input);
-//						if(mainQueue.getFrontEelement().equals(input))
+						if(mainQueue.getFrontEelement().equals(input))
 							System.out.println("daraalald '"+input+"' elementiig amjilttai nemlee\n");
-//						else
-//							System.out.println("daraalald nemj chadsangui!");
+						else
+							System.out.println("daraalald nemj chadsangui!");
 						break;
 					case 5:
 						System.out.println("daraallaas '"+mainQueue.remove()+"' element ustgagdlaa!"+"\n");
