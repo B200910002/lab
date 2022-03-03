@@ -4,16 +4,15 @@ import java.util.*;
 
 public class MyQueue implements Queue{
 	private Object[] elements;
-	private int firstIndex;
-//	private int lastIndex;
+	private int firstIndex = 0;
+	private int lastIndex = -1;
 	private int size;
 	
 	public MyQueue(int initialized_size){
 		if(initialized_size < 1)
 			throw new IllegalArgumentException("failed.Cause your input is valid!!!");
 		elements = new Object[initialized_size];
-		this.size = -1;
-//		this.lastIndex = size - firstIndex;
+		this.size = 0;
 	}
 	
 	public MyQueue() {
@@ -22,7 +21,7 @@ public class MyQueue implements Queue{
 	
 	@Override
 	public boolean isEmpty() {
-		return size == -1;
+		return size == 0;
 	}
 
 	@Override
@@ -35,13 +34,14 @@ public class MyQueue implements Queue{
 	@Override
 	public Object getRearEelement() {
 		if(!isEmpty())
-			return this.elements[size];
+			return this.elements[lastIndex];
 		return null;
 	}
 
 	@Override
 	public void put(Object theObject) {
-		elements[++size] = theObject;
+		elements[++lastIndex] = theObject;
+		size++;
 	}
 
 	@Override
@@ -50,6 +50,7 @@ public class MyQueue implements Queue{
 		if(!isEmpty()) {
 			elements[firstIndex] = null;
 			firstIndex++;
+			size--;
 		}
 		return result;
 	}
@@ -66,10 +67,7 @@ public class MyQueue implements Queue{
 		try {
 			while(true) {
 				System.out.println("1.isEmpty() \n2.getFrontEelement()\n3.getRearEelement()\n4.put\n5.remove");
-
 				int command = sc.nextInt();
-//				System.out.println("command-iin ur dun: ");
-				//
 				switch(command) {
 					case 1:
 						if(mainQueue.isEmpty())
@@ -80,26 +78,33 @@ public class MyQueue implements Queue{
 					case 2:
 						if(!mainQueue.isEmpty())
 							System.out.println("Ene daraalaliin ehnii element = " + mainQueue.getFrontEelement()+"\n");
-						System.out.println("element alga bn!!");
+						else
+							System.out.println("element alga bn!!\n");
 						break;
 					case 3:
-						System.out.println("Ene daraalaliin suuliin element = " + mainQueue.getRearEelement()+ "\n");
+						if(!mainQueue.isEmpty())
+							System.out.println("Ene daraalaliin suuliin element = " + mainQueue.getRearEelement()+ "\n");
+						else
+							System.out.println("element alga bn!!\n");
 						break;
 					case 4:
 						System.out.println("elementee oruulna uu?");
 						Object input = new String(sc.next());
 						mainQueue.put(input);
-						
+//						if(mainQueue.getFrontEelement().equals(input))
+							System.out.println("daraalald '"+input+"' elementiig amjilttai nemlee\n");
+//						else
+//							System.out.println("daraalald nemj chadsangui!");
 						break;
 					case 5:
-						System.out.println(mainQueue.remove());
+						System.out.println("daraallaas '"+mainQueue.remove()+"' element ustgagdlaa!"+"\n");
 						break;
 					default:
 						System.out.println("is valid command!");
 						break;
 				}
 			}
-		}catch(Exception ex) {System.out.println("system-d ymar negen aldaa garlaa!!");;}
+		}catch(Exception ex) {System.out.println("system-d ymar negen aldaa garlaa!!");main(args);}
 		
 		
 	}
