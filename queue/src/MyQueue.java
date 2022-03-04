@@ -20,6 +20,10 @@ public class MyQueue implements Queue{
 		this(100);
 	}
 	
+	public int size() {
+		return this.size;
+	}
+	
 	@Override
 	public boolean isEmpty() {
 		return size == 0;
@@ -55,6 +59,18 @@ public class MyQueue implements Queue{
 		}
 		return result;
 	}
+	
+	public String toString() {
+		String r = "[";
+		for(int i=0;i<this.size();i++) {
+			r = r + this.elements[i];
+			if((i+1)!=this.size())
+				r = r + ",";
+		}
+		r = r + "]";
+		return r;
+		
+	}
 	//
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -67,7 +83,7 @@ public class MyQueue implements Queue{
 		
 		try {
 			while(true) {
-				System.out.println("1.isEmpty() \n2.getFrontEelement()\n3.getRearEelement()\n4.put\n5.remove");
+				System.out.println("1.isEmpty() \n2.getFrontEelement()\n3.getRearEelement()\n4.put\n5.remove\n6.toString\n7.exit");
 				int command = sc.nextInt();
 				switch(command) {
 					case 1:
@@ -98,6 +114,12 @@ public class MyQueue implements Queue{
 						System.out.println("daraallaas '"+mainQueue.remove()+"' element ustgagdlaa!"+"\n");
 						break;
 					case 6:
+						if(!mainQueue.isEmpty())
+							System.out.println(mainQueue.toString());
+						else
+							System.out.println("[]");
+						break;
+					case 7:
 						System.exit(0);
 					default:
 						System.out.println("is valid command!");
