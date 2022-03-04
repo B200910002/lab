@@ -8,7 +8,6 @@ public class MyQueue implements Queue{
 	private int size = 0;
 	private int lastIndex = size - 1;
 	
-	
 	public MyQueue(int initialized_size){
 		if(initialized_size < 1)
 			throw new IllegalArgumentException("failed.Cause your input is valid!!!");
@@ -80,7 +79,7 @@ public class MyQueue implements Queue{
 //		MyQueue mainQueue = new MyQueue(sc.nextInt());
 		System.out.println("=====>>>>> Daraalal <<<<<<=====");
 		System.out.println("=>uildliig ajilluulhiin tuld uildluudiin urdah dugaariig oruulna uu?");
-		
+		Stack<String> s = new Stack<String>();
 		try {
 			while(true) {
 				System.out.println("1.isEmpty() \n2.getFrontEelement()\n3.getRearEelement()\n4.put\n5.remove\n6.toString\n7.exit");
