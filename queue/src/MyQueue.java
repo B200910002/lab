@@ -7,7 +7,7 @@ public class MyQueue<E> implements Queue{
 	private int firstIndex = 0;
 	private int size = 0;
 	private int lastIndex = size - 1;
-	
+	//
 	public MyQueue(int initialized_size){
 		if(initialized_size < 1)
 			throw new IllegalArgumentException("failed.Cause your input is valid!!!");
