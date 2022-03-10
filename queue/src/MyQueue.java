@@ -2,8 +2,8 @@
 
 import java.util.*;
 
-public class MyQueue<E> implements Queue{
-	private Object[] elements;
+public class MyQueue<E> implements InterfaceQueue<E>{
+	private E[] elements;
 	private int firstIndex = 0;
 	private int size = 0;
 	private int lastIndex = size - 1;
@@ -11,7 +11,7 @@ public class MyQueue<E> implements Queue{
 	public MyQueue(int initialized_size){
 		if(initialized_size < 1)
 			throw new IllegalArgumentException("failed.Cause your input is valid!!!");
-		elements = new Object[initialized_size];
+		elements = (E[]) new Object[initialized_size];
 		this.size = 0;
 	}
 	
@@ -29,28 +29,28 @@ public class MyQueue<E> implements Queue{
 	}
 
 	@Override
-	public Object getFrontEelement() {
+	public E getFrontEelement() {
 		if(!isEmpty()) 
 			return this.elements[firstIndex];
 		return null;
 	}
 
 	@Override
-	public Object getRearEelement() {
+	public E getRearEelement() {
 		if(!isEmpty())
 			return this.elements[lastIndex];
 		return null;
 	}
 
 	@Override
-	public void put(Object theObject) {
+	public void put(E theObject) {
 		elements[++lastIndex] = theObject;
 		size++;
 	}
 
 	@Override
-	public Object remove() {
-		Object result = elements[firstIndex];
+	public E remove() {
+		E result = elements[firstIndex];
 		if(!isEmpty()) {
 			elements[firstIndex] = null;
 			firstIndex++;
@@ -60,13 +60,17 @@ public class MyQueue<E> implements Queue{
 	}
 	
 	public String toString() {
-		String r = "[";
+		StringBuilder r = new StringBuilder();
+        r.append('[');
+		if(this.isEmpty())
+			return "[]";
 		for(int i=this.firstIndex;i<this.lastIndex+1;i++) {
-			r = r + this.elements[i] + ",";
+			r.append(this.elements[i]);
+			if(i == this.lastIndex)
+				return r.append("]").toString();
+			r.append(",").append(" ");
 		}	
-		r = r + "]";
-		return r;
-		
+		return r.toString();
 	}
 	//
 	public static void main(String[] args) {
@@ -75,7 +79,6 @@ public class MyQueue<E> implements Queue{
 		MyQueue<String> mainQueue = new MyQueue<String>();
 		System.out.println("=====>>>>> Daraalal <<<<<<=====");
 		System.out.println("=>uildliig ajilluulhiin tuld uildluudiin urdah dugaariig oruulna uu?");
-		
 		try {
 			while(true) {
 				System.out.println("1.isEmpty() \n2.getFrontEelement()\n3.getRearEelement()\n4.put\n5.remove\n6.toString\n7.exit");
@@ -101,18 +104,19 @@ public class MyQueue<E> implements Queue{
 						break;
 					case 4:
 						System.out.println("elementee oruulna uu?");
-						Object input = new String(sc.next());
+						String input = new String(sc.next());
 						mainQueue.put(input);
 						System.out.println("daraalald '"+input+"' elementiig amjilttai nemlee\n");
 						break;
 					case 5:
-						System.out.println("daraallaas '"+mainQueue.remove()+"' element ustgagdlaa!"+"\n");
+						if(mainQueue.isEmpty())
+							System.out.println("hooson daraallaas ustgah bolomjgui!");
+						else
+							System.out.println("daraallaas '"+mainQueue.remove()+"' element ustgagdlaa!"+"\n");
 						break;
 					case 6:
 						if(!mainQueue.isEmpty())
 							System.out.println(mainQueue.toString());
-						else
-							System.out.println("[]");
 						break;
 					case 7:
 						System.exit(0);
