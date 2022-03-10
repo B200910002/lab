@@ -2,7 +2,7 @@
 
 import java.util.*;
 
-public class MyQueue implements Queue{
+public class MyQueue<E> implements Queue{
 	private Object[] elements;
 	private int firstIndex = 0;
 	private int size = 0;
@@ -61,11 +61,9 @@ public class MyQueue implements Queue{
 	
 	public String toString() {
 		String r = "[";
-		for(int i=0;i<this.size();i++) {
-			r = r + this.elements[i];
-			if((i+1)!=this.size())
-				r = r + ",";
-		}
+		for(int i=this.firstIndex;i<this.lastIndex+1;i++) {
+			r = r + this.elements[i] + ",";
+		}	
 		r = r + "]";
 		return r;
 		
@@ -74,12 +72,10 @@ public class MyQueue implements Queue{
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		Scanner sc = new Scanner(System.in);
-		MyQueue mainQueue = new MyQueue();
-//		System.out.println("");
-//		MyQueue mainQueue = new MyQueue(sc.nextInt());
+		MyQueue<String> mainQueue = new MyQueue<String>();
 		System.out.println("=====>>>>> Daraalal <<<<<<=====");
 		System.out.println("=>uildliig ajilluulhiin tuld uildluudiin urdah dugaariig oruulna uu?");
-		Stack<String> s = new Stack<String>();
+		
 		try {
 			while(true) {
 				System.out.println("1.isEmpty() \n2.getFrontEelement()\n3.getRearEelement()\n4.put\n5.remove\n6.toString\n7.exit");

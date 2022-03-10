@@ -1,9 +1,9 @@
 
 
-public interface Queue {   
+public interface Queue<E> {   
 	public boolean isEmpty();
-	public Object getFrontEelement();
-	public Object getRearEelement();	
-	public void put(Object theObject);
-	public Object remove(); 
+	public E getFrontEelement();
+	public E getRearEelement();	
+	public void put(E theObject);
+	public E remove(); 
 }
