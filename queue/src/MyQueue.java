@@ -1,7 +1,7 @@
 //imjak
 //
 import java.util.*;
-
+//hfhgh
 public class MyQueue<E> implements InterfaceQueue<E>{
 	private E[] elements;
 	private int firstIndex = 0;
