@@ -2,21 +2,19 @@
 
 import java.util.*;
 
-public class MyQueue<E> implements InterfaceQueue<E>{
-	private E[] elements;
-	private int firstIndex = 0;
+public class MyQueue2<E> implements InterfaceQueue<E>{
+	private Node<E> firstNode;
+//	private int firstIndex = 0;
 	private int size = 0;
-	private int lastIndex = size - 1;
+//	private int lastIndex = size - 1;
 	//
-	public MyQueue(int initialized_size){
+	public MyQueue2(int initialized_size){
 		if(initialized_size < 1)
 			throw new IllegalArgumentException("failed.Cause your input is valid!!!");
-		elements = (E[]) new Object[initialized_size];
 		this.size = 0;
-		//
 	}
 	
-	public MyQueue() {
+	public MyQueue2() {
 		this(100);
 	}
 	
@@ -32,26 +30,25 @@ public class MyQueue<E> implements InterfaceQueue<E>{
 	@Override
 	public E getFrontEelement() {
 		if(!isEmpty()) 
-			return this.elements[firstIndex];
+			return null;
 		return null;
 	}
 
 	@Override
 	public E getRearEelement() {
 		if(!isEmpty())
-			return this.elements[lastIndex];
+			return null;
 		return null;
 	}
 
 	@Override
 	public void put(E theObject) {
-		elements[++lastIndex] = theObject;
 		size++;
 	}
 
 	@Override
 	public E remove() {
-		E result = elements[firstIndex];
+		E result = elements;
 		if(!isEmpty()) {
 			elements[firstIndex] = null;
 			firstIndex++;
