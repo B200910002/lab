@@ -77,10 +77,16 @@ public class MyQueue<E> implements InterfaceQueue<E>{
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		Scanner sc = new Scanner(System.in);
-//		MyQueue<String> mainQueue = new MyQueue<String>();
-		MyQueue<Integer> mainQueue = new MyQueue<Integer>();
-//		MyQueue<Double> mainQueue = new MyQueue<Double>();
-//		MyQueue<Float> mainQueue = new MyQueue<Float>();
+		System.out.println("1.String\n2.Integer\3.Double\n4.Float");
+		String type = sc.nextLine();
+//		if(type == "")
+			MyQueue<String> mainQueue = new MyQueue<String>();
+//		else if(type.equals("Integer"))
+			MyQueue<Integer> mainQueue = new MyQueue<Integer>();
+//		else if(type.equals("String"))
+			MyQueue<Double> mainQueue = new MyQueue<Double>();
+//		else if(type.equals("String"))
+			MyQueue<Float> mainQueue = new MyQueue<Float>();
 		System.out.println("=====>>>>> Daraalal <<<<<<=====");
 		System.out.println("=>uildliig ajilluulhiin tuld uildluudiin urdah dugaariig oruulna uu?");
 		try {
