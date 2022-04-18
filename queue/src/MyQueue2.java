@@ -48,7 +48,7 @@ public class MyQueue2<E> implements InterfaceQueue<E>{
 			Node<E> p = firstNode;
 			for (int i = 0; i < size-1; i++)
 	            p = p.next;
-	         p.next = new Node<E>(theObject, p.next);
+	        p.next = new Node<E>(theObject, p.next);
 		}
 		size++;
 	}
@@ -92,46 +92,56 @@ public class MyQueue2<E> implements InterfaceQueue<E>{
 		System.out.println("=>uildliig ajilluulhiin tuld uildluudiin urdah dugaariig oruulna uu?");
 		try {
 			while(true) {
-				System.out.println("1.isEmpty() \n2.getFrontEelement()\n3.getRearEelement()\n4.put\n5.remove\n6.toString\n7.exit");
+				System.out.println("1.isEmpty \n"
+						+ "2.getFrontEelement\n"
+						+ "3.getRearEelement\n"
+						+ "4.put\n"
+						+ "5.remove\n"
+						+ "6.toString\n"
+						+ "7.size\n"
+						+ "8.exit");
 				int command = sc.nextInt();
 				switch(command) {
 					case 1:
 						if(mainQueue.isEmpty())
-							System.out.println("ene daraalal hooson baina!\n");
+							System.out.println("==>ene daraalal hooson baina!\n");
 						else
-							System.out.println("ene daraalal hooson bish baina!\n");
+							System.out.println("==>ene daraalal hooson bish baina!\n");
 						break;
 					case 2:
 						if(!mainQueue.isEmpty())
-							System.out.println("Ene daraalaliin ehnii element = " + mainQueue.getFrontEelement()+"\n");
+							System.out.println("==>Ene daraalaliin ehnii element = " + mainQueue.getFrontEelement()+"\n");
 						else
-							System.out.println("element alga bn!!\n");
+							System.out.println("==>element alga bn!!\n");
 						break;
 					case 3:
 						if(!mainQueue.isEmpty())
-							System.out.println("Ene daraalaliin suuliin element = " + mainQueue.getRearEelement()+ "\n");
+							System.out.println("==>Ene daraalaliin suuliin element = " + mainQueue.getRearEelement()+ "\n");
 						else
-							System.out.println("element alga bn!!\n");
+							System.out.println("==>element alga bn!!\n");
 						break;
 					case 4:
-						System.out.println("elementee oruulna uu?");
+						System.out.println("==>elementee oruulna uu?");
 						String input = new String(sc.next());
 //						Integer input = new Integer(sc.next());
 //						Double input = new Double(sc.next());
 //						Float input = new Float(sc.next());
 						mainQueue.put(input);
-						System.out.println("daraalald '"+input+"' elementiig amjilttai nemlee\n");
+						System.out.println("==>daraalald '"+input+"' elementiig amjilttai nemlee\n");
 						break;
 					case 5:
 						if(mainQueue.isEmpty())
-							System.out.println("hooson daraallaas ustgah bolomjgui!");
+							System.out.println("==>hooson daraallaas ustgah bolomjgui!\n");
 						else
-							System.out.println("daraallaas '"+mainQueue.remove()+"' element ustgagdlaa!"+"\n");
+							System.out.println("==>daraallaas '"+mainQueue.remove()+"' element ustgagdlaa!"+"\n");
 						break;
 					case 6:
 						System.out.println(mainQueue.toString()+"\n");
 						break;
 					case 7:
+						System.out.println(mainQueue.size()+"\n");
+						break;
+					case 8:
 						System.exit(0);
 					default:
 						System.out.println("is valid command!\n");
