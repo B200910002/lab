@@ -1,5 +1,5 @@
 //imjak
-
+//
 import java.util.*;
 
 public class MyQueue2<E> implements InterfaceQueue<E>{
