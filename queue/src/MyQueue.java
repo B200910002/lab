@@ -1,8 +1,10 @@
-//imjak
-//
-//
+
 import java.util.*;
 
+
+import com.google.java.contract.*;	
+
+@Invariant("size >= 0 && lastIndex != nul")
 public class MyQueue<E> implements InterfaceQueue<E>{
 	private E[] elements;
 	private int firstIndex = 0;
@@ -25,31 +27,44 @@ public class MyQueue<E> implements InterfaceQueue<E>{
 		return this.size;
 	}
 	
+	
 	@Override
+	@Ensures("size==0")
 	public boolean isEmpty() {
 		return size == 0;
 	}
 
 	@Override
+	@Requires("Queue != null")
+	@Ensures("elements[firstIndex]")
 	public E getFrontEelement() {
+		assert size != 0 : "Queue хоосон биш байх ёстой";
 		if(!isEmpty()) 
 			return this.elements[firstIndex];
 		return null;
 	}
 
 	@Override
+	@Requires("Queue != null")
+	@Ensures("elements[lastIndex]")
 	public E getRearEelement() {
+		assert size != 0 : "Queue хоосон биш байх ёстой";
 		if(!isEmpty())
 			return this.elements[lastIndex];
 		return null;
 	}
 
+	
 	@Override
+	@Requires("Queue != null")
+	@Ensures("size = size + 1 && element.leght = element.leght + 1")
+    @ThrowEnsures("size == old(size)")
 	public void put(E theObject) {
 		elements[++lastIndex] = theObject;
 		size++;
 	}
 
+	@Ensures("element.leght = element.leght - 1")
 	@Override
 	public E remove() {
 		E result = elements[firstIndex];
@@ -57,10 +72,12 @@ public class MyQueue<E> implements InterfaceQueue<E>{
 			elements[firstIndex] = null;
 			firstIndex++;
 			size--;
+			assert  size != 0 : "Queue хоосон биш байх ёстой";
 		}
 		return result;
 	}
 	
+	@Requires("Queue != null")
 	public String toString() {
 		StringBuilder r = new StringBuilder();
         r.append('[');
@@ -71,10 +88,11 @@ public class MyQueue<E> implements InterfaceQueue<E>{
 			if(i == this.lastIndex)
 				return r.append("]").toString();
 			r.append(",").append(" ");
-		}	
+		}
+		assert size != 0 : "Хоосон Queue хэвлэх боломжгүй";
 		return r.toString();
 	}
-	//
+	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		Scanner sc = new Scanner(System.in);
